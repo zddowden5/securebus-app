@@ -1,0 +1,19 @@
+version: 1
+applications:
+  - appRoot: nextjs_space
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - yarn install
+            - yarn prisma generate
+        build:
+          commands:
+            - yarn run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
