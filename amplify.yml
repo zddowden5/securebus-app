@@ -9,6 +9,10 @@ applications:
             - yarn prisma generate
         build:
           commands:
+            - export DATABASE_URL="${DATABASE_URL}"
+            - export NEXTAUTH_SECRET="${NEXTAUTH_SECRET}"
+            - export NEXTAUTH_URL="${NEXTAUTH_URL}"
+            - export NODE_ENV="${NODE_ENV}"
             - yarn run build
       artifacts:
         baseDirectory: .next
